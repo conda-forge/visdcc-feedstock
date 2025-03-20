@@ -1,13 +1,13 @@
 {% set name = "visdcc" %}
-{% set version = "0.0.50" %}
+{% set version = "0.0.63" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 22ab477027da32ca196bf7175c12f86b50936fdc2224fc3aee7da8af8cbbd1ab
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 3c11b24f3a63060b90fa40b260aa7296329ae46f7239cff20daa1b4f753f3400
 
 build:
   noarch: python
@@ -17,6 +17,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - pip
