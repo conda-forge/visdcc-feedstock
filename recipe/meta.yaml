@@ -1,5 +1,6 @@
 {% set name = "visdcc" %}
 {% set version = "0.0.63" %}
+{% set python_min = "3.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -19,16 +20,18 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
   host:
-    - python
+    - python {{ python_min }}
     - pip
   run:
-    - python
+    - python >={{ python_min }}
     - dash
     - dash-renderer
     - dash-html-components
     - dash-core-components
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - dash
     - dash_core_components
